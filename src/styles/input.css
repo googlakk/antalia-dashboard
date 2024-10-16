@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Poppins:wght@200;400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+.body {
+  
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  @apply text-4xl font-bold;
+}
+p {
+  @apply mt-1.5 text-sm;
+}
+.gameTitle{
+  background: linear-gradient(149deg, rgba(24,187,156,1) 0%, rgb(46, 126, 22) 42%, rgba(187,24,148,1) 72%, rgb(6, 14, 125) 100%);
+  animation: gradient 10s infinite linear; 
+  background-size: 400%;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /**bg-gradient-to-tr from-yellow-200 via-green-200 to-green-300*/
+}
+.gradient{
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background: ( ) no-repeat;
+  background: linear-gradient(184deg, rgba(12,0,36,1) 0%, rgba(9,119,121,1) 48%, rgba(0,212,255,1) 99%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  animation: gradient 9s infinite linear;
+  background-size: 400%;
+}
+@keyframes gradient {
+  0% {
+      background-position: 80% 0%;
+  }
+  50% {
+      background-position: 20% 100%;
+  }
+  100% {
+      background-position: 80% 0%;
+  }
+}
+
+.clip-hidden {
+  clip-path: ellipse(0 0 at 0% 0%);
+  opacity: 0;
+}
+.clip-visible {
+  clip-path: ellipse(1400px 1400px at 0% 0%);
+}
+
+#back,
+#forward {
+  @apply absolute z-[5] -translate-y-2/4 text-gray-100 hover:scale-125 cursor-pointer duration-[0.4s] ease-out px-0 py-2.5 border-0 top-2/4;
+}
+
+.content {
+  @apply text-[aliceblue] absolute w-full z-[5] text-center backdrop-blur-[2px] duration-[1s] px-0 py-[15px] left-0 bottom-0;
+  background: #0f0f0fa9;
+  padding: 40px 0;
+  font-size: 25px;
+}
