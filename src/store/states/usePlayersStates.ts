@@ -24,7 +24,28 @@ const usePlayersStates = () => {
   const deliteUser = (id: Users["id"]) => {
     setUsers({ users: users.filter((user) => user.id !== id) });
   };
+  const addPoints = (id: Users["id"], points: number) => {
+    setUsers({
+      users: users.map((user) =>
+        user.id === id
+          ? { ...user, points: (Number(user.points) || 0) + points }
+          : user
+      ),
+    });
+  };
+  const delitePoints = (id: Users["id"], points: number) => {
+    setUsers({
+      users: users.map((user) =>
+        user.id === id
+          ? {
+              ...user,
+              points: Math.max(0, (Number(user.points) || 0) - points),
+            }
+          : user
+      ),
+    });
+  };
 
-  return { addUser, editUser, deliteUser, users };
+  return { addUser, editUser, deliteUser, users, addPoints, delitePoints };
 };
 export default usePlayersStates;

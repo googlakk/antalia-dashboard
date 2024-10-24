@@ -19,11 +19,13 @@ const Admins = () => {
   function getStageById(stageId: number): Stage | undefined {
     return stages.find((stage) => stage.id === stageId);
   }
-
+  
   // Функция для получения информации о конкретной группе
   function getGroupById(groupId: number): Group | undefined {
     return groups.find((group) => group.id === groupId);
   }
+
+
   return (
     <div>
       <section className="flex flex-col justify-center antialiased bg-gray-100 text-gray-600 min-h-screen p-4">

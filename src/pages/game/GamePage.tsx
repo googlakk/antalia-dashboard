@@ -25,7 +25,12 @@ const GamePage: FC = () => {
   const handleChangeStageSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCurrentStage(e.target.value);
   };
-
+  const decrementPoints = (playerId: number) => {
+    players.addPoints(playerId, 10);
+  };
+  const incrementPoints = (playerId: number) => {
+    players.delitePoints(playerId, 10);
+  };
   const groupedPlayers = useMemo(
     () =>
       players.users.reduce((result, value) => {
@@ -78,6 +83,14 @@ const GamePage: FC = () => {
                       <td>{players.name}</td>
                       <td></td>
                       <td>{players.points || 0} </td>
+                      <td className=" flex gap-5">
+                        {" "}
+                        <button className=" btn " onClick={() => decrementPoints(players.id)}>
+                          {" "}
+                          +{" "}
+                        </button>
+                        <button className=" btn " onClick={() => incrementPoints(players.id)}> - </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
